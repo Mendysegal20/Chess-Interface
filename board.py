@@ -10,6 +10,7 @@ class Board:
         self._init_pieces('white')
         self._init_pieces('black')
 
+
     def _init_squares(self):
         for row in range(ROWS):
             for col in range(COLS):
@@ -46,7 +47,11 @@ class Board:
         self.squares[other_row][7] = Square(other_row, 7, Rook(other_row, 7, color))
 
         # king
-        self.squares[other_row][4] = Square(other_row, 4, King(other_row, 4, color))
+        king = King(other_row, 4, color)
+        if color == 'white': self.white_king = king
+        else: self.black_king = king
+        self.squares[other_row][4] = Square(other_row, 4, king)
+
 
         # queen
         self.squares[other_row][3] = Square(other_row, 3, Queen(other_row, 3, color))
@@ -65,6 +70,7 @@ class Board:
     def move(self, row, col, piece):
         if self.squares[row][col].has_piece():
             self.squares[row][col].clear_square()
+        # might be a problem!
         self.squares[row][col], self.squares[piece.row][piece.col] = self.squares[piece.row][piece.col], self.squares[row][col]
         piece.move(row, col)
 

@@ -8,8 +8,7 @@ SQUARE_SIZE = WINDOW_WIDTH // COLS
 
 WHITE = (234, 235, 200)
 BLACK = (0, 0, 0)
-BLUE = (0, 0, 255)
+BLUE = (54, 119, 199)
 GREEN = (119, 154, 88)
 
-
-PATH = r'C:\Users\mendy\OneDrive\שולחן העבודה\chess'
+#PATH = r'C:\Users\mendy\OneDrive\שולחן העבודה\chess'
